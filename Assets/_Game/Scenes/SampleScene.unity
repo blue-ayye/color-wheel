@@ -154,11 +154,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _wheelPrefab: {fileID: 524378587172556675, guid: 1f9b622fac6be5348abd77054a58073c,
     type: 3}
+  _wheelHeight: 3.75
   _spawnPosition: {x: 0, y: 15, z: 0}
-  _wheelHeight: 4
-  _fallSpeed: 0.15
+  _fallDuration: 0.15
   _wheelFallEase: 32
-  _wheelShiftSpeed: 0.3
+  _wheelShiftDuration: 0.3
   _wheelShiftEase: 27
 --- !u!4 &147959177
 Transform:
@@ -437,9 +437,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edb036d010725264aa3cfc947c343291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _paintBallPrefab: {fileID: 2992533050729547243, guid: e0d49344e7abec343858f5e82a0aa6f1,
+  _paintBallPrefab: {fileID: -4715273504749453010, guid: e0d49344e7abec343858f5e82a0aa6f1,
     type: 3}
   _paintBallForce: 70
+  _paintBallColor: {r: 1, g: 0.5434835, b: 0.07075471, a: 1}
 --- !u!4 &822779536
 Transform:
   m_ObjectHideFlags: 0

@@ -6,11 +6,11 @@ using UnityEngine.Serialization;
 
 public class Wheel : MonoBehaviour
 {
-    [SerializeField] private WheekChunk _wheelSectionPrefab;
+    [SerializeField] private WheelChunk _wheelSectionPrefab;
     [SerializeField] private float _wheelRadius = 9.4f;
     [SerializeField] private int _numberOfChunks = 23;
 
-    public List<WheekChunk> WheelChunks;
+    public List<WheelChunk> WheelChunks;
     [SerializeField] private float _wheelRotationSpeed = 100f;
     [SerializeField] private float _wheelRotationDuration = 1f;
     [SerializeField] private float _waitTimeBetweenRotations = .5f;
@@ -25,7 +25,7 @@ public class Wheel : MonoBehaviour
     {
         var angleStep = 360f / _numberOfChunks;
 
-        WheelChunks = new List<WheekChunk>();
+        WheelChunks = new List<WheelChunk>();
 
         for (int i = 0; i < _numberOfChunks; i++)
         {
