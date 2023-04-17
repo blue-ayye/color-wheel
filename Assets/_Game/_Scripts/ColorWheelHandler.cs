@@ -3,9 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-public class WheelSpawner : MonoBehaviour
+public class ColorWheelHandler : MonoBehaviour
 {
     [Header("Wheel Config")]
     [SerializeField] private Wheel _wheelPrefab;
@@ -20,25 +19,22 @@ public class WheelSpawner : MonoBehaviour
     [SerializeField] private float _wheelShiftDuration = .3f;
     [SerializeField] private Ease _wheelShiftEase = Ease.OutBack;
 
-    private readonly List<Wheel> _spawnedWheels = new();
+    private List<Wheel> _spawnedWheels;
 
-    private void Start()
+    private void Awake()
     {
-        SpawnWheel();
+        _spawnedWheels = new List<Wheel>();
     }
 
-    private void Update()
+    public void ClearWheels()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SpawnWheel();
-        }
+        _spawnedWheels.ForEach(wheel => Destroy(wheel.gameObject));
+        _spawnedWheels.Clear();
     }
 
-    private void SpawnWheel()
+    public void SpawnWheel()
     {
-        var wheel = Instantiate(_wheelPrefab, _spawnPosition, Quaternion.identity);
-        wheel.transform.parent = transform;
+        var wheel = Instantiate(_wheelPrefab, _spawnPosition, Quaternion.identity, transform);
         _spawnedWheels.Add(wheel);
 
         wheel.transform.DOMoveY(_wheelHeight, _fallDuration)
@@ -52,5 +48,10 @@ public class WheelSpawner : MonoBehaviour
 
         transform.DOMoveY(pos, _wheelShiftDuration)
                  .SetEase(_wheelShiftEase);
+    }
+
+    public void CompleteWheel(Color ballColor)
+    {
+        _spawnedWheels[^1].PaintWheel(ballColor);
     }
 }

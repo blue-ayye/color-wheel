@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WheelChunk : MonoBehaviour
@@ -9,6 +6,11 @@ public class WheelChunk : MonoBehaviour
 
     private bool _isHit;
 
+    public void DisableRenderer()
+    {
+        _meshRenderer.enabled = false;
+    }
+    
     public bool TryPainting(Color color)
     {
         if (_isHit)
